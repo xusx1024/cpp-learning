@@ -2,9 +2,13 @@
 #define SCREEN_H
 #include<iostream>
 #include<string>
+#include"Window_mgr.h"
 using namespace std;
+int height;
 class Screen{
 public:
+  friend class Window_mgr;
+  // friend void Window_mgr::clear(Window_mgr::ScreenIndex);
   // typedef std::string::size_type pos;
   using pos = std::string::size_type;
   Screen() = default;
@@ -36,9 +40,11 @@ public:
 
 private:
   void do_display(std::ostream &os) const{os << contents;}
+
+
   };
 
-  
+
 inline
 Screen &Screen::move(pos r, pos c)
 {
